@@ -1,0 +1,28 @@
+# Laravel
+/vendor/
+node_modules/
+
+# Laravel IDE
+.phpunit.result.cache
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log

@@ -1,0 +1,31 @@
+{
+    "name": "param/rbac",
+    "description": "Complete Laravel project setup package with models, migrations, controllers, and authentication system. Includes pre-built models, database migrations, two-factor authentication, and automatic setup for new developers.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "authentication", "two-factor", "models", "migrations", "setup", "rbac"],
+    "authors": [
+        {
+            "name": "Param",
+            "email": "your-email@example.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0",
+        "spatie/laravel-permission": "^6.24",
+        "pragmarx/google2fa-laravel": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Param\\RBAC\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Param\\RBAC\\ProjectSetupServiceProvider"
+            ]
+        }
+    }
+}
