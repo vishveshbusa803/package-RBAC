@@ -19,6 +19,9 @@ class ProjectSetupServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Load routes
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
         // Publish migrations
         $this->publishesMigrations([
             __DIR__.'/../database/migrations' => database_path('migrations'),

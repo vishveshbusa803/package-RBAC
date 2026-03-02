@@ -28,6 +28,14 @@ class HomeController extends Controller
     }
 
     /**
+     * Show RBAC welcome page
+     */
+    public function welcome()
+    {
+        return view('rbac::welcome');
+    }
+
+    /**
      * Show root/home page
      */
     public function root()
