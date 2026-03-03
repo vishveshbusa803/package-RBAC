@@ -1,6 +1,6 @@
 @extends('layouts.master-without-nav')
 @section('title')
-    @lang('translation.Error_404')
+    Error 404
 @endsection
 @section('content')
     <div class="my-5 pt-sm-5">

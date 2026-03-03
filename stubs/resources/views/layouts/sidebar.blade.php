@@ -38,13 +38,13 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">@lang('translation.Menu')</li>
+                <li class="menu-title">Menu</li>
 
                 @can('dashboard-view')
                 <li>
                     <a href="{{url('index')}}">
                         <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
-                        <span>@lang('translation.Dashboard')</span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 @endcan

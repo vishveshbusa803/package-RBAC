@@ -29,7 +29,7 @@
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="@lang('translation.Search')...">
+                    <input type="text" class="form-control" placeholder="Search...">
                     <span class="uil-search"></span>
                 </div>
             </form>
@@ -44,11 +44,11 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                     aria-labelledby="page-header-search-dropdown">
-                    
+
                     <form class="p-3">
                         <div class="m-0">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="@lang('translation.Search')..." aria-label="Recipient's username">
+                                <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
                                 </div>
@@ -79,7 +79,7 @@
                     @endswitch
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
-                    
+
                     <!-- item-->
                     <a href="{{ url('index/en') }}" class="dropdown-item notify-item">
                         <img src="{{ URL::asset('assets/images/flags/us.jpg')}}" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
@@ -176,10 +176,10 @@
                     <div class="p-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h5 class="m-0 font-size-16"> @lang('translation.Notifications') </h5>
+                                <h5 class="m-0 font-size-16"> Notifications </h5>
                             </div>
                             <div class="col-auto">
-                                <a href="#!" class="small"> @lang('translation.Mark_read')</a>
+                                <a href="#!" class="small"> Mark Read</a>
                             </div>
                         </div>
                     </div>
@@ -272,11 +272,11 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">@lang('translation.View_Profile')</span></a>
-                    <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">@lang('translation.My_Wallet')</span></a>
-                    <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">@lang('translation.Settings')</span> <span class="badge bg-success-subtle text-success rounded-pill mt-1 ms-2">03</span></a>
-                    <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">@lang('translation.Lock_screen')</span></a>
-                    <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">@lang('translation.Sign_out')</span></a>
+                    <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">View Profile</span></a>
+                    <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">My Wallet</span></a>
+                    <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Settings</span> <span class="badge bg-success-subtle text-success rounded-pill mt-1 ms-2">03</span></a>
+                    <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Lock Screen</span></a>
+                    <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Sign Out</span></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -288,14 +288,14 @@
                     <i class="uil-cog"></i>
                 </button>
             </div>
-            
+
         </div>
     </div>
     <div class="container-fluid">
         <div class="topnav">
 
             <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
-    
+
                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                     <ul class="navbar-nav">
 
@@ -304,7 +304,7 @@
                                 <i class="uil-home-alt me-2"></i> @lang('translation.Dashboard')
                             </a>
                         </li>
-    
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
                                 <i class="uil-flask me-2"></i>@lang('translation.UI_Elements') <div class="arrow-down"></div>
@@ -353,7 +353,7 @@
 
                             </div>
                         </li>
-    
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-pages" role="button">
                                 <i class="uil-apps me-2"></i>@lang('translation.Apps') <div class="arrow-down"></div>
@@ -399,7 +399,7 @@
                                         <a href="invoices-detail" class="dropdown-item">@lang('translation.Invoice_Detail')</a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="dropdown">
                                     <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-contact"
                                         role="button">
@@ -413,7 +413,7 @@
                                 </div>
                             </div>
                         </li>
-    
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button"
                                >
@@ -488,14 +488,14 @@
                                 </div>
                             </div>
                         </li>
-    
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button"
                                >
                                 <i class="uil-copy me-2"></i>@lang('translation.Extra_pages') <div class="arrow-down"></div>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="topnav-more">
-                                
+
                                 <div class="dropdown">
                                     <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-auth"
                                         role="button">
@@ -560,7 +560,7 @@
                                 </div>
                             </div>
                         </li>
-    
+
                     </ul>
                 </div>
             </nav>

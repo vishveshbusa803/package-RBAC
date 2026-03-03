@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-@lang('translation.Boxed_Width')
+Boxed Width
 @endsection
 @section('body')
 
