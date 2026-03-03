@@ -29,16 +29,54 @@ A comprehensive Role-Based Access Control (RBAC) package for Laravel that transf
 
 ### Step 1: Install the Package
 
+#### Method 1: Add Repository to composer.json (Recommended for Single Project)
+
+Edit your project's `composer.json` and add the repository:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vishveshbusa803/package-RBAC.git"
+        }
+    ],
+    "require": {
+        "param/rbac": "dev-master"
+    }
+}
+```
+
+Then install:
 ```bash
-composer require param/rbac
+composer install
+```
+
+#### Method 2: Global Composer Configuration (Recommended for Multiple Projects)
+
+Configure Composer globally once:
+
+```bash
+composer config --global repositories.rbac vcs https://github.com/vishveshbusa803/package-RBAC.git
+```
+
+Then in any project, just run:
+```bash
+composer require param/rbac:dev-master
+```
+
+#### Method 3: Direct Installation (if already configured)
+
+```bash
+composer require param/rbac:dev-master
 ```
 
 ### Step 2: Run the Installation Command
 
-The package auto-discovers and registers itself. Run the install command:
+Once the package is installed, run the install command:
 
 ```bash
-php artisan param-rbac:install
+php artisan param-rbac:install --force
 ```
 
 This command will:
