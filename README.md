@@ -88,7 +88,7 @@ This command will:
 ### Step 3: Run Migrations
 
 ```bash
-php artisan migrate
+php artisan migrate:fresh --seed
 ```
 
 ### Step 4: Build Frontend Assets
