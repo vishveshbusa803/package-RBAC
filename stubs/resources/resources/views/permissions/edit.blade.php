@@ -1,0 +1,123 @@
+@extends('layouts.master')
+
+@section('title')
+    Edit Permission
+@endsection
+
+@section('content')
+    @component('common-components.breadcrumb')
+        @slot('pagetitle')
+            Masters
+        @endslot
+        @slot('title')
+            Edit Permission
+        @endslot
+    @endcomponent
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Edit Permission</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('permissions.update', $permission) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Module/Form Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                   id="name" name="name" placeholder="e.g., Dashboard, Users, Reports"
+                                   value="{{ old('name', $baseName) }}" required>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <small class="form-text text-muted">Enter the name of the module or form</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Operations/Permissions <span class="text-danger">*</span></label>
+                            <div id="operations-container">
+                                @php
+                                    $displayOperations = old('operations', $operations);
+                                @endphp
+                                @foreach($displayOperations as $index => $op)
+                                    <div class="input-group mb-2 operation-row">
+                                        <input type="text" class="form-control @error('operations.' . $index) is-invalid @enderror"
+                                               name="operations[]" placeholder="e.g., view, create, edit, delete, export"
+                                               value="{{ $op }}">
+                                        <button type="button" class="btn btn-outline-danger remove-operation" title="Remove">
+                                            <i class="uil uil-trash-alt"></i>
+                                        </button>
+                                        @error('operations.' . $index)
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endforeach
+                            </div>
+                            @error('operations')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                            <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="add-operation">
+                                <i class="uil uil-plus"></i> Add Permission
+                            </button>
+                            <small class="form-text text-muted d-block mt-2">Module: <strong>{{ $baseName }}</strong> | Current Operations: <strong>{{ implode(', ', $operations) }}</strong></small>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="uil uil-check"></i> Update Permissions
+                            </button>
+                            <a href="{{ route('permissions.index') }}" class="btn btn-secondary">
+                                <i class="uil uil-arrow-left"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('operations-container');
+            const addBtn = document.getElementById('add-operation');
+
+            addBtn.addEventListener('click', function() {
+                const newRow = document.createElement('div');
+                newRow.className = 'input-group mb-2 operation-row';
+                newRow.innerHTML = `
+                    <input type="text" class="form-control" name="operations[]"
+                           placeholder="e.g., view, create, edit, delete, export" value="">
+                    <button type="button" class="btn btn-outline-danger remove-operation" title="Remove">
+                        <i class="uil uil-trash-alt"></i>
+                    </button>
+                `;
+                container.appendChild(newRow);
+                updateRemoveButtons();
+            });
+
+            function updateRemoveButtons() {
+                const rows = container.querySelectorAll('.operation-row');
+                rows.forEach((row, index) => {
+                    const removeBtn = row.querySelector('.remove-operation');
+                    if (rows.length === 1) {
+                        removeBtn.classList.add('d-none');
+                    } else {
+                        removeBtn.classList.remove('d-none');
+                    }
+                });
+            }
+
+            container.addEventListener('click', function(e) {
+                if (e.target.closest('.remove-operation')) {
+                    e.target.closest('.operation-row').remove();
+                    updateRemoveButtons();
+                }
+            });
+
+            updateRemoveButtons();
+        });
+    </script>
+@endsection
