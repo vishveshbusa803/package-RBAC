@@ -1,5 +1,5 @@
 {
-    "name": "param/rbac",
+    "name": "vishveshbusa/rbac",
     "description": "Complete RBAC (Role-Based Access Control) package for Laravel - transforms a fresh Laravel installation into a fully featured RBAC system with authentication, permissions, roles, and complete UI scaffolding.",
     "type": "library",
     "license": "MIT",

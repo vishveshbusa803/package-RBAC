@@ -1,6 +1,6 @@
 # Param RBAC - Laravel RBAC Package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/param/rbac.svg?style=flat-square)](https://packagist.org/packages/param/rbac)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vishveshbusa/rbac.svg?style=flat-square)](https://packagist.org/packages/vishveshbusa/rbac)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 A comprehensive Role-Based Access Control (RBAC) package for Laravel that transforms a fresh Laravel installation into a fully featured RBAC system with authentication, permissions, roles, and complete UI scaffolding.
@@ -42,7 +42,7 @@ Edit your project's `composer.json` and add the repository:
         }
     ],
     "require": {
-        "param/rbac": "1.0.0"
+        "vishveshbusa/rbac": "1.0.0"
     }
 }
 ```
@@ -62,13 +62,13 @@ composer config --global repositories.rbac vcs https://github.com/vishveshbusa80
 
 Then in any project, just run:
 ```bash
-composer require param/rbac:1.0.0
+composer require vishveshbusa/rbac:1.0.0
 ```
 
 #### Method 3: Direct Installation (if already configured)
 
 ```bash
-composer require param/rbac:1.0.0
+composer require vishveshbusa/rbac:1.0.0
 ```
 
 ### Step 2: Run the Installation Command
