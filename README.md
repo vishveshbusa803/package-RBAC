@@ -42,7 +42,7 @@ Edit your project's `composer.json` and add the repository:
         }
     ],
     "require": {
-        "param/rbac": "dev-master"
+        "param/rbac": "1.0.0"
     }
 }
 ```
@@ -62,13 +62,13 @@ composer config --global repositories.rbac vcs https://github.com/vishveshbusa80
 
 Then in any project, just run:
 ```bash
-composer require param/rbac:dev-master
+composer require param/rbac:1.0.0
 ```
 
 #### Method 3: Direct Installation (if already configured)
 
 ```bash
-composer require param/rbac:dev-master
+composer require param/rbac:1.0.0
 ```
 
 ### Step 2: Run the Installation Command
