@@ -5,6 +5,17 @@
 
 A comprehensive Role-Based Access Control (RBAC) package for Laravel that transforms a fresh Laravel installation into a fully featured RBAC system with authentication, permissions, roles, and complete UI scaffolding.
 
+## ⚠️ **Important Note**
+
+**This package is designed for fresh Laravel projects only.**
+
+⚡ When you run the installation command, it will:
+- Remove all default Laravel scaffolding (controllers, models, views, authentication UI)
+- Replace it with the complete RBAC UI and system
+- Modify your existing `composer.json` dependencies
+
+**⚠️ MAKE SURE YOUR PROJECT IS BACKED UP** before installing this package, as it will significantly modify your project structure and configurations.
+
 ## 🎯 Features
 
 - **Complete RBAC System** - Role-based access control with permissions and roles
