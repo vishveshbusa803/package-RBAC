@@ -27,103 +27,31 @@ A comprehensive Role-Based Access Control (RBAC) package for Laravel that transf
 
 ## ⚙️ Installation
 
-### Step 1: Install the Package
-
-#### Method 1: Add Repository to composer.json (Recommended for Single Project)
-
-Edit your project's `composer.json` and add the repository:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/vishveshbusa803/package-RBAC.git"
-        }
-    ],
-    "require": {
-        "vishveshbusa/rbac": "1.0.0"
-    }
-}
-```
-
-Then install:
-```bash
-composer install
-```
-
-#### Method 2: Global Composer Configuration (Recommended for Multiple Projects)
-
-Configure Composer globally once:
-
-```bash
-composer config --global repositories.rbac vcs https://github.com/vishveshbusa803/package-RBAC.git
-```
-
-Then in any project, just run:
-```bash
-composer require vishveshbusa/rbac:1.0.0
-```
-
-#### Method 3: Direct Installation (if already configured)
+Install the package via Composer:
 
 ```bash
 composer require vishveshbusa/rbac:1.0.0
 ```
 
-### Step 2: Run the Installation Command
-
-Once the package is installed, run the install command:
+Run the installation command:
 
 ```bash
 php artisan param-rbac:install --force
 ```
 
-This command will:
-- Remove default Laravel scaffolding (controllers, models, views, auth)
-- Publish all package resources (controllers, models, migrations, views)
-- Install required dependencies (spatie/laravel-permission, etc.)
-- Set up authentication configurations
-
-### Step 3: Run Migrations
+Run migrations:
 
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-### Step 4: Build Frontend Assets
+Build frontend assets:
 
 ```bash
 npm install
 npm run dev
 ```
 
-### Step 5: Access Your Application
-
-- **URL**: `http://localhost/`
-- **Login**:
-  - Email: `admin@example.com`
-  - Password: `password`
-
-## 🚀 Quick Start Guide
-
-### Using the Install Command with Force Flag
-
-To skip confirmation prompts:
-
-```bash
-php artisan param-rbac:install --force
-```
-
-### Command Options
-
-```bash
-# Skip confirmation dialog
-php artisan param-rbac:install --force
-
-# Verbose output
-php artisan param-rbac:install -v
-```
 
 ## 📁 Package Structure
 
