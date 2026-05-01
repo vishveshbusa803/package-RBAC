@@ -310,6 +310,43 @@ In Packagist:
 
 ## 🔍 Troubleshooting
 
+### Composer Dependency Conflict
+
+**Error:** `illuminate/support ^10|^11|^12 -> found illuminate/support[...] but these were not loaded, likely because it conflicts with another require.`
+
+**Cause:** One or more of the package dependencies have conflicting version constraints with `illuminate/support`.
+
+**Solutions:**
+
+1. **Check your Laravel version** - Ensure your project uses Laravel 10, 11, or 12:
+```bash
+composer show | grep laravel/framework
+```
+
+2. **Update conflicting dependencies** - Update packages to versions compatible with your Laravel version:
+```bash
+composer update laravel/ui spatie/laravel-permission pragmarx/google2fa-laravel yajra/laravel-datatables --with-dependencies
+```
+
+3. **Install with dependency resolution** - Let Composer resolve dependencies automatically:
+```bash
+composer require vishveshbusa/rbac:1.0.0 --with-dependencies
+```
+
+4. **Clear Composer cache and retry**:
+```bash
+composer clear-cache
+composer require vishveshbusa/rbac:1.0.0
+```
+
+5. **Check package constraints** - If issues persist, verify each dependency supports your Laravel version:
+- `laravel/ui ^4.2` - Supports Laravel 10+
+- `spatie/laravel-permission ^6.0` - Supports Laravel 10+
+- `pragmarx/google2fa-laravel ^2.3` - Supports Laravel 10+
+- `yajra/laravel-datatables ^12.0` - Supports Laravel 10+
+
+**Note:** This package requires **Laravel 10, 11, or 12**. If you're using Laravel 9 or earlier, you must upgrade your project first.
+
 ### Package Not Auto-Discovering
 
 ```bash
