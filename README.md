@@ -32,7 +32,7 @@ A comprehensive Role-Based Access Control (RBAC) package for Laravel that transf
 ## 📋 Requirements
 
 - PHP ^8.2
-- Laravel ^10|^11|^12 (Laravel 13 not yet supported due to `pragmarx/google2fa-laravel` dependency)
+- Laravel ^10|^11|^12|^13
 - Composer
 - Node.js & npm (for asset compilation)
 
@@ -310,31 +310,11 @@ In Packagist:
 
 ## 🔍 Troubleshooting
 
-### Laravel 13 Not Supported
-
-**Issue:** RBAC package cannot be installed on Laravel 13 projects.
-
-**Cause:** The package depends on `pragmarx/google2fa-laravel ^2.3`, which does not yet support Laravel 13. This package is used for 2-factor authentication (Google Authenticator).
-
-**Solution:**
-- **Option 1 (Recommended):** Downgrade your Laravel project to Laravel 12 or 11:
-  ```bash
-  # Create a new Laravel 12 project instead
-  laravel new project-name --version=12
-  composer require vishveshbusa/rbac:1.0.0
-  ```
-
-- **Option 2:** Wait for `pragmarx/google2fa-laravel` to release Laravel 13 support, then update RBAC package
-
-- **Option 3:** Remove 2FA functionality and fork the package to remove the google2fa dependency
-
-**Tracking:** This limitation will be removed once the `pragmarx/google2fa-laravel` package officially supports Laravel 13.
-
-### Composer Dependency Conflict (Laravel 10-12)
+### Composer Dependency Conflict
 
 **Error:** `illuminate/support ^10|^11|^12 -> found illuminate/support[...] but these were not loaded, likely because it conflicts with another require.`
 
-**Root Cause:** A dependency in your Laravel project has a conflicting `illuminate/support` requirement.
+**Cause:** A dependency in your Laravel project has a conflicting `illuminate/support` requirement.
 
 **Solutions:**
 
