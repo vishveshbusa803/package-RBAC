@@ -32,7 +32,7 @@ A comprehensive Role-Based Access Control (RBAC) package for Laravel that transf
 ## 📋 Requirements
 
 - PHP ^8.2
-- Laravel ^10|^11|^12
+- Laravel ^10|^11|^12 (Laravel 13 not yet supported due to `pragmarx/google2fa-laravel` dependency)
 - Composer
 - Node.js & npm (for asset compilation)
 
@@ -310,32 +310,33 @@ In Packagist:
 
 ## 🔍 Troubleshooting
 
-### Composer Dependency Conflict
+### Laravel 13 Not Supported
+
+**Issue:** RBAC package cannot be installed on Laravel 13 projects.
+
+**Cause:** The package depends on `pragmarx/google2fa-laravel ^2.3`, which does not yet support Laravel 13. This package is used for 2-factor authentication (Google Authenticator).
+
+**Solution:**
+- **Option 1 (Recommended):** Downgrade your Laravel project to Laravel 12 or 11:
+  ```bash
+  # Create a new Laravel 12 project instead
+  laravel new project-name --version=12
+  composer require vishveshbusa/rbac:1.0.0
+  ```
+
+- **Option 2:** Wait for `pragmarx/google2fa-laravel` to release Laravel 13 support, then update RBAC package
+
+- **Option 3:** Remove 2FA functionality and fork the package to remove the google2fa dependency
+
+**Tracking:** This limitation will be removed once the `pragmarx/google2fa-laravel` package officially supports Laravel 13.
+
+### Composer Dependency Conflict (Laravel 10-12)
 
 **Error:** `illuminate/support ^10|^11|^12 -> found illuminate/support[...] but these were not loaded, likely because it conflicts with another require.`
 
-**Root Cause:** The package dependencies needed updating to properly support all versions of Laravel 10, 11, and 12.
+**Root Cause:** A dependency in your Laravel project has a conflicting `illuminate/support` requirement.
 
-**Fix Applied:** Updated package dependencies in `composer.json`:
-- `spatie/laravel-permission: ^6.4` (was ^6.0)
-- `yajra/laravel-datatables: ^10.0|^11.0|^12.0` (was ^12.0)
-
-This ensures compatibility with all Laravel versions by allowing appropriate package versions.
-
-**Installation:**
-
-```bash
-# Clear composer cache
-composer clear-cache
-
-# Install the package
-composer require vishveshbusa/rbac:1.0.0
-
-# Update dependencies
-composer update
-```
-
-**If you still encounter issues:**
+**Solutions:**
 
 1. **Check your Laravel version**:
 ```bash
@@ -347,9 +348,8 @@ composer show | grep laravel/framework
 composer require vishveshbusa/rbac:1.0.0 --with-all-dependencies
 ```
 
-3. **Reset and reinstall**:
+3. **Clear composer cache and retry**:
 ```bash
-composer remove vishveshbusa/rbac
 composer clear-cache
 composer require vishveshbusa/rbac:1.0.0
 ```
@@ -357,14 +357,6 @@ composer require vishveshbusa/rbac:1.0.0
 4. **Verify all dependencies match your Laravel version**:
 ```bash
 composer show | grep -E "laravel|illuminate|spatie|google2fa|datatables"
-```
-
-**Note:** This package requires **Laravel 10+** with PHP 8.2+. If you're using Laravel 9 or earlier, upgrade your project first:
-```bash
-# Create new Laravel 11 project
-laravel new test-project
-cd test-project
-composer require vishveshbusa/rbac:1.0.0
 ```
 
 ### Package Not Auto-Discovering
