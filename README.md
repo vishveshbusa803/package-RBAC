@@ -36,12 +36,14 @@ A comprehensive Role-Based Access Control (RBAC) package for Laravel that transf
 - Composer
 - Node.js & npm (for asset compilation)
 
+**Latest Release:** v1.0.1 adds full support for Laravel 13
+
 ## ⚙️ Installation
 
 Install the package via Composer:
 
 ```bash
-composer require vishveshbusa/rbac:1.0.0
+composer require vishveshbusa/rbac:1.0.1
 ```
 
 Run the installation command:
@@ -325,13 +327,13 @@ composer show | grep laravel/framework
 
 2. **Update with dependency resolution**:
 ```bash
-composer require vishveshbusa/rbac:1.0.0 --with-all-dependencies
+composer require vishveshbusa/rbac:1.0.1 --with-all-dependencies
 ```
 
 3. **Clear composer cache and retry**:
 ```bash
 composer clear-cache
-composer require vishveshbusa/rbac:1.0.0
+composer require vishveshbusa/rbac:1.0.1
 ```
 
 4. **Verify all dependencies match your Laravel version**:
@@ -415,6 +417,30 @@ For issues, questions, or suggestions:
 - Open an issue on GitHub
 - Check the [documentation](./README.md)
 - Email: support@param.dev
+
+## 📋 Changelog
+
+### v1.0.1 (Current - 2026-05-01)
+**✨ Laravel 13 Support**
+- Added support for Laravel 13 
+- Updated `pragmarx/google2fa-laravel` to support v3.0+ (with Laravel 13 compatibility)
+- Updated `yajra/laravel-datatables` to support v13.0+
+- Improved dependency constraint compatibility for Laravel 10, 11, 12, and 13
+- Enhanced troubleshooting documentation
+
+**Dependency Updates:**
+- `pragmarx/google2fa-laravel: ^2.3|^3.0` (was ^2.3)
+- `yajra/laravel-datatables: ^10.0|^11.0|^12.0|^13.0` (was ^12.0)
+- `illuminate/support: ^10|^11|^12|^13` (was ^10|^11|^12)
+
+### v1.0.0 (Initial Release)
+- Complete RBAC system with roles and permissions
+- Multi-factor authentication (2FA, Email OTP, Mobile OTP, CAPTCHA)
+- User management interface
+- Role and permission management
+- Bootstrap 5 admin template
+- Database migrations and seeders
+- Laravel 10, 11, 12 support
 
 ---
 
