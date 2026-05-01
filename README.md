@@ -314,38 +314,58 @@ In Packagist:
 
 **Error:** `illuminate/support ^10|^11|^12 -> found illuminate/support[...] but these were not loaded, likely because it conflicts with another require.`
 
-**Cause:** One or more of the package dependencies have conflicting version constraints with `illuminate/support`.
+**Root Cause:** The package dependencies needed updating to properly support all versions of Laravel 10, 11, and 12.
 
-**Solutions:**
+**Fix Applied:** Updated package dependencies in `composer.json`:
+- `spatie/laravel-permission: ^6.4` (was ^6.0)
+- `yajra/laravel-datatables: ^10.0|^11.0|^12.0` (was ^12.0)
 
-1. **Check your Laravel version** - Ensure your project uses Laravel 10, 11, or 12:
+This ensures compatibility with all Laravel versions by allowing appropriate package versions.
+
+**Installation:**
+
+```bash
+# Clear composer cache
+composer clear-cache
+
+# Install the package
+composer require vishveshbusa/rbac:1.0.0
+
+# Update dependencies
+composer update
+```
+
+**If you still encounter issues:**
+
+1. **Check your Laravel version**:
 ```bash
 composer show | grep laravel/framework
 ```
 
-2. **Update conflicting dependencies** - Update packages to versions compatible with your Laravel version:
+2. **Update with dependency resolution**:
 ```bash
-composer update laravel/ui spatie/laravel-permission pragmarx/google2fa-laravel yajra/laravel-datatables --with-dependencies
+composer require vishveshbusa/rbac:1.0.0 --with-all-dependencies
 ```
 
-3. **Install with dependency resolution** - Let Composer resolve dependencies automatically:
+3. **Reset and reinstall**:
 ```bash
-composer require vishveshbusa/rbac:1.0.0 --with-dependencies
-```
-
-4. **Clear Composer cache and retry**:
-```bash
+composer remove vishveshbusa/rbac
 composer clear-cache
 composer require vishveshbusa/rbac:1.0.0
 ```
 
-5. **Check package constraints** - If issues persist, verify each dependency supports your Laravel version:
-- `laravel/ui ^4.2` - Supports Laravel 10+
-- `spatie/laravel-permission ^6.0` - Supports Laravel 10+
-- `pragmarx/google2fa-laravel ^2.3` - Supports Laravel 10+
-- `yajra/laravel-datatables ^12.0` - Supports Laravel 10+
+4. **Verify all dependencies match your Laravel version**:
+```bash
+composer show | grep -E "laravel|illuminate|spatie|google2fa|datatables"
+```
 
-**Note:** This package requires **Laravel 10, 11, or 12**. If you're using Laravel 9 or earlier, you must upgrade your project first.
+**Note:** This package requires **Laravel 10+** with PHP 8.2+. If you're using Laravel 9 or earlier, upgrade your project first:
+```bash
+# Create new Laravel 11 project
+laravel new test-project
+cd test-project
+composer require vishveshbusa/rbac:1.0.0
+```
 
 ### Package Not Auto-Discovering
 
