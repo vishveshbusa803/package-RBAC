@@ -788,15 +788,6 @@
            Update Authentication Settings
         ================================ */
         $(document).on("click", "#btnUpdateAuthSetting", function() {
-            const isAnyChecked = $("#captchaToggle").is(":checked") ||
-                $("#emailOtpToggle").is(":checked") ||
-                $("#mobileOtpToggle").is(":checked") ||
-                $("#twoFaToggle").is(":checked");
-
-            if (!isAnyChecked) {
-                notificationToastCustom('warning', 'At least one authentication method must be enabled.', 'Validation');
-                return false;
-            }
 
             const authSettings = [];
 
