@@ -422,7 +422,7 @@ For issues, questions, or suggestions:
 
 ### v1.0.1 (Current - 2026-05-01)
 **✨ Laravel 13 Support**
-- Added support for Laravel 13 
+- Added support for Laravel 13
 - Updated `pragmarx/google2fa-laravel` to support v3.0+ (with Laravel 13 compatibility)
 - Updated `yajra/laravel-datatables` to support v13.0+
 - Improved dependency constraint compatibility for Laravel 10, 11, 12, and 13
