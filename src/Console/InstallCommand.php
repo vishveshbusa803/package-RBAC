@@ -295,6 +295,12 @@ class InstallCommand extends Command
      */
     protected function publishSpatiePermissions(): void
     {
+        $existing = glob(database_path('migrations/*_create_permission_tables.php'));
+        if (!empty($existing)) {
+            $this->line('  ✓ Spatie permission tables already published');
+            return;
+        }
+
         try {
             $this->line('  Publishing Spatie permission migrations...');
 
