@@ -30,7 +30,7 @@ class AuthenticationSettingsSeeder extends Seeder
             [
                 'AuthCode' => 'EMAIL_VERIFY',
                 'AuthName' => 'Email OTP',
-                'IsEnabled' => 1,
+                'IsEnabled' => 0,
                 'OTPAttempt' => 5,
                 'OTPResetTime' => 300,
                 'OTPExpiryTime' => 600,
@@ -41,7 +41,7 @@ class AuthenticationSettingsSeeder extends Seeder
             [
                 'AuthCode' => 'MOBILE_VERIFY',
                 'AuthName' => 'Mobile OTP',
-                'IsEnabled' => 1,
+                'IsEnabled' => 0,
                 'OTPAttempt' => 5,
                 'OTPResetTime' => 300,
                 'OTPExpiryTime' => 600,
@@ -52,7 +52,7 @@ class AuthenticationSettingsSeeder extends Seeder
             [
                 'AuthCode' => 'TWO_FACTOR',
                 'AuthName' => 'Two-Factor Authentication',
-                'IsEnabled' => 1,
+                'IsEnabled' => 0,
                 'OTPAttempt' => 5,
                 'OTPResetTime' => null,
                 'OTPExpiryTime' => null,
