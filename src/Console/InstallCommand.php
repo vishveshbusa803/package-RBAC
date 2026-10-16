@@ -4,6 +4,7 @@ namespace ParamRbac\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Process\Process;
 
 class InstallCommand extends Command
 {
@@ -262,18 +263,25 @@ class InstallCommand extends Command
     protected function installDependencies(): void
     {
         $dependencies = [
-            'spatie/laravel-permission:^6.0',
-            'pragmarx/google2fa-laravel:^2.3',
-            'yajra/laravel-datatables:^12.0',
-            'laravel/ui:^4.2',
+            'spatie/laravel-permission',
+            'pragmarx/google2fa-laravel',
+            'yajra/laravel-datatables',
+            'laravel/ui',
         ];
 
         $this->line('  Installing package dependencies...');
 
         foreach ($dependencies as $package) {
             try {
-                $this->callQuietly('composer', ['require', $package]);
-                $this->line("  ✓ Installed: {$package}");
+                $process = Process::fromShellCommandline("composer require {$package}", base_path());
+                $process->setTimeout(300);
+                $process->run();
+
+                if ($process->isSuccessful()) {
+                    $this->line("  ✓ Installed: {$package}");
+                } else {
+                    $this->warn("  ⚠ Could not install {$package}: " . trim($process->getErrorOutput() ?: $process->getOutput()));
+                }
             } catch (\Exception $e) {
                 $this->warn("  ⚠ Could not install {$package}: " . $e->getMessage());
             }
@@ -290,7 +298,7 @@ class InstallCommand extends Command
         try {
             $this->line('  Publishing Spatie permission migrations...');
 
-            $this->callQuietly('vendor:publish', [
+            $this->callSilent('vendor:publish', [
                 '--provider' => 'Spatie\\Permission\\PermissionServiceProvider',
                 '--force' => true,
             ]);
