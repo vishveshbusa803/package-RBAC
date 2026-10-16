@@ -31,19 +31,19 @@ A comprehensive Role-Based Access Control (RBAC) package for Laravel that transf
 
 ## 📋 Requirements
 
-- PHP ^8.2
+- PHP ^8.2 (PHP 8.2 & PHP 8.3+)
 - Laravel ^10|^11|^12|^13
 - Composer
 - Node.js & npm (for asset compilation)
 
-**Latest Release:** v1.0.1 adds full support for Laravel 13
+**Latest Release:** v1.0.2
 
 ## ⚙️ Installation
 
 Install the package via Composer:
 
 ```bash
-composer require vishveshbusa/rbac:1.0.1
+composer require vishveshbusa/rbac
 ```
 
 Run the installation command:
@@ -251,13 +251,13 @@ cd test-project
 
 2. Install the package from your local directory:
 ```bash
-composer config repositories.local path /path/to/param-rbac
-composer require param/rbac:dev-main
+composer config repositories.local path /path/to/package-rbac
+composer require vishveshbusa/rbac:@dev
 ```
 
 3. Run the install command:
 ```bash
-php artisan param-rbac:install
+php artisan param-rbac:install --force
 php artisan migrate
 npm install && npm run dev
 ```
@@ -268,13 +268,13 @@ To reinstall the package in your test project:
 
 ```bash
 # Remove package from composer.json and autoload
-composer remove param/rbac
+composer remove vishveshbusa/rbac
 
 # Clear all scaffolding
 rm -rf app/Http/Controllers app/Http/Middleware app/Models resources/views public/assets
 
 # Run installation again
-composer require param/rbac
+composer require vishveshbusa/rbac
 php artisan param-rbac:install --force
 ```
 
@@ -327,13 +327,13 @@ composer show | grep laravel/framework
 
 2. **Update with dependency resolution**:
 ```bash
-composer require vishveshbusa/rbac:1.0.1 --with-all-dependencies
+composer require vishveshbusa/rbac --with-all-dependencies
 ```
 
 3. **Clear composer cache and retry**:
 ```bash
 composer clear-cache
-composer require vishveshbusa/rbac:1.0.1
+composer require vishveshbusa/rbac
 ```
 
 4. **Verify all dependencies match your Laravel version**:
@@ -420,7 +420,14 @@ For issues, questions, or suggestions:
 
 ## 📋 Changelog
 
-### v1.0.1 (Current - 2026-05-01)
+### v1.0.2 (Current - 2026-10-16)
+**🐛 Installer & Compatibility Fixes**
+- Fixed `callQuietly` method error in `InstallCommand` by using `callSilent` for Artisan commands.
+- Used Symfony `Process` for running Composer dependency installation.
+- Dynamic dependency version resolution matching the active Laravel installation.
+- Clarified PHP 8.2 and PHP 8.3+ support.
+
+### v1.0.1 (2026-05-01)
 **✨ Laravel 13 Support**
 - Added support for Laravel 13
 - Updated `pragmarx/google2fa-laravel` to support v3.0+ (with Laravel 13 compatibility)
